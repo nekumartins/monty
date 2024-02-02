@@ -1,3 +1,5 @@
+#include "monty.h"
+
 /**
  * push - Pushes an integer to the stack.
  * @stack: Double pointer to the stack.
@@ -7,6 +9,9 @@
 
 void push(stack_t **stack, char *arg, unsigned int line_number)
 {
+	int i;
+	stack_t *new_node;
+
 	/*Check if arg is NULL*/
 	if (arg == NULL)
 	{
@@ -15,7 +20,7 @@ void push(stack_t **stack, char *arg, unsigned int line_number)
 	}
 
 	/*Check if arg is a valid integer*/
-	for (int i = 0; arg[i] != '\0'; i++)
+	for (i = 0; arg[i] != '\0'; i++)
 	{
 		if (!isdigit(arg[i]))
 		{
@@ -25,7 +30,7 @@ void push(stack_t **stack, char *arg, unsigned int line_number)
 	}
 
 	/*Create a new */
-	stack_t *new_node = malloc(sizeof(stack_t));
+	new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
 	{
